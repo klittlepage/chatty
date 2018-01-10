@@ -1,6 +1,6 @@
 # Introduction
 
-Curious about the texting habits of you and your friends? Look no further! Chatty will pull texts from iMessage and show you stats on how you communicate with whatever individual you tell it to analyze.
+Curious about the texting habits of you and your friends? Look no further! Chatty will show you stats on how you communicate with whatever individual you tell it to analyze. Out of the box, Chatty supports iMessage, WhatsApp, and Line. Custom sources and arbitrary text is supported as well.
 
 # Why?
 
@@ -35,6 +35,19 @@ Chatty includes a utility for reading config from an external yaml file: ```chat
 
 The iMessage source requires an OSX computer with iMessage. Once the notebook loads, redefine ```RECIPIENT_ID``` to either an E.164 number of the form '+13031234567' or an iMessage handle of the form 'foo@bar.com'.
 
+### WhatsApp
+
+The WhatsApp source reads from a WhatsApp chat log exported by the iOS WhatsApp client. It has not been tested against other clients.
+
+```python
+from chatty.sources import whatsapp_chat
+
+project_vars = load_vars()
+all_messages = whatsapp_chat(project_vars['chat_path'])
+from_messages = all_messages[project_vars['from']]
+to_messages = all_messages[project_vars['to']]
+```
+
 ### Line
 
 The line source reads from a Line chat log exported by the iOS Line client. It has not been tested against other clients.
@@ -54,7 +67,7 @@ All analysis functions are composable and built for reuse. By default, Chatty wi
 
 # Todo
 
-* Support other message sources (WhatsApp/Line/etc)
+* Support other message sources
 * Add time series/trend analysis
 * PRs welcome
 
