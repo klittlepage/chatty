@@ -1,4 +1,4 @@
-from itertools import chain
+from itertools import chain, zip_longest
 
 import matplotlib.pyplot as plt
 
@@ -123,5 +123,5 @@ def emoji_comparison(from_emojis, to_emojis):
     from_emojis = from_emojis['Emoji'].values.tolist()
     to_emojis = to_emojis['Emoji'].values.tolist()
     rank = [x+1 for x in range(len(to_emojis))]
-    table = [x for x in zip(rank, from_emojis, to_emojis)]
+    table = [x for x in zip_longest(rank, from_emojis, to_emojis, fillvalue='')]
     print(tabulate(table, headers=['Emoji Rank', 'From Me', 'To Me']))
