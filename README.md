@@ -6,6 +6,10 @@ Curious about the texting habits of you and your friends? Look no further! Chatt
 
 Why not? Texting styles are a hot topic of discussion in my friend group. I wanted quantitative evidence that some of my friends are better texters than others. Kidding. Kind of.
 
+# Preview
+
+Please see the [project notebook](https://github.com/klittlepage/chatty/blob/master/chatty.ipynb) for a full demonstration. Note that GitHub does not render Jupyter notebooks on mobile. If you "Request as Desktop Site" using your mobile broswer, it's still fairly readable.  
+
 # Installation
 
 A working Python 3 [Anaconda](https://anaconda.org/anaconda/python) environment is required. Once Anaconda is installed, run:
