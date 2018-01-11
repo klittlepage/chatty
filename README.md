@@ -31,7 +31,7 @@ Short of that, two examples (out of the many in the notebook) are a comparison t
 
 and sentiment analysis carried out and displayed by ```sentiment``` and ```sentiment_plot```:
 
-![Distribution of message sentiments sent and received](https://raw.githubusercontent.com/klittlepage/chatty/master/static/sentiment_dist.png)
+![Distribution of message sentiments sent and received](/static/sentiment_dist.png?raw=true)
 
 # Installation
 
