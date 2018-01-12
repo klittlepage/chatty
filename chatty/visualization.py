@@ -54,6 +54,7 @@ def word_count_plot(word_counts, title_suffix=None, ax=None,
                           title=full_title(title, title_suffix),
                           ax=ax,
                           figsize=figsize)
+    ax.set_xlim(left=0)
     ax.set_xlabel('Words per Message')
 
 def word_cloud(messages, width=12, height=12,
