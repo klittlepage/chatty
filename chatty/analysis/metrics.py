@@ -1,8 +1,10 @@
-from .analysis import vocab, emojis, avg_message_words, avg_message_chars, \
-                      longest_message, pct_sentiment
-from .preprocessing import filter_stopwords, stem, filter_english
+from chatty.analysis.analysis import (vocab, emojis, avg_message_words,
+                                      avg_message_chars, longest_message,
+                                      pct_sentiment)
+from chatty.analysis.preprocessing import filter_stopwords, stem, filter_english
 
-class Metric(object):
+
+class Metric:
 
     def __init__(self, name, calc,
                  format_str=f"{0}"):
@@ -17,6 +19,7 @@ class Metric(object):
         val = self.compute(messages, sentiment)
         return self.format_str.format(val)
 
+
 MESSAGE_COUNT = Metric('Message Count',
                        lambda messages, sentiment: len(messages),
                        "{:,}")
@@ -26,16 +29,18 @@ WORD_COUNT = Metric('Word Count',
                     "{:,}")
 
 AVG_WORD_COUNT = Metric('Avg Message Word Count',
-                        lambda messages, sentiment: avg_message_words(messages),
+                        lambda messages, sentiment: avg_message_words(
+                            messages),
                         "{0:.2f}")
 
 AVG_WORD_COUNT_WO_STOP = Metric('Avg Message Word Count (w/o Stop Words)',
-                                lambda messages, sentiment: \
+                                lambda messages, sentiment:
                                 avg_message_words(filter_stopwords(messages)),
                                 "{0:.2f}")
 
 AVG_CHAR_COUNT = Metric('Avg Message Character Count',
-                        lambda messages, sentiment: avg_message_chars(messages),
+                        lambda messages, sentiment: avg_message_chars(
+                            messages),
                         "{0:.2f}")
 
 AVG_CHAR_COUNT_WO_STOP = Metric('Avg Message Character Count (w/o Stop Words)',
@@ -71,13 +76,13 @@ EMOJI_COUNT = \
 
 PCT_NEGATIVE_SENTIMENT = \
     Metric('Pct Negative Sentiment',
-           lambda messages, sentiment: \
+           lambda messages, sentiment:
            pct_sentiment(sentiment, lambda x: x < -.5),
            "{0:.0f}%")
 
 PCT_POSITIVE_SENTIMENT = \
     Metric('Pct Positive Sentiment',
-           lambda messages, sentiment: \
+           lambda messages, sentiment:
            pct_sentiment(sentiment, lambda x: x > .5),
            "{0:.0f}%")
 

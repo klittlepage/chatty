@@ -4,6 +4,7 @@ import codecs
 from collections import defaultdict
 from datetime import datetime
 
+
 def chat(log_path, include_timestamps=False):
     chat_parsed = defaultdict(list)
     with codecs.open(log_path, encoding='utf-8') as input_file:
@@ -23,7 +24,7 @@ def chat(log_path, include_timestamps=False):
                 continue
             time, participant = row[:2]
             message = '\t'.join(row[2:])
-            if message == '[Photo]' or message == '[Sticker]':
+            if message in ['[Photo]', '[Sticker]']:
                 continue
             if include_timestamps:
                 time = datetime.strptime(f"{date_part} {time}",

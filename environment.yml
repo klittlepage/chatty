@@ -1,7 +1,7 @@
 name: chatty
 channels:
-- conda-forge
 - defaults
+- conda-forge
 dependencies:
 - pip
 - jupyter
@@ -16,3 +16,5 @@ dependencies:
   - vaderSentiment
   - tabulate
   - wordcloud
+  - grapheme
+  - pytz

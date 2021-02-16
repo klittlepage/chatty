@@ -5,6 +5,7 @@ from nltk.tokenize.casual import TweetTokenizer
 
 from nltk.stem.porter import PorterStemmer
 
+
 def normalize_messages(messages):
     tokenizer = TweetTokenizer(preserve_case=False)
     normalized_messages = []
@@ -18,25 +19,32 @@ def normalize_messages(messages):
             pass
     return normalized_messages
 
+
 def stem(messages):
     stemmer = PorterStemmer()
-    return [[stemmer.stem(word) for word in message] \
+    return [[stemmer.stem(word) for word in message]
             for message in messages]
+
 
 STOPWORDS = stopwords.words('english')
+
+
 def filter_stopwords(messages, stopword_corpus=STOPWORDS):
-    return [[word for word in message \
-             if word not in stopword_corpus] \
+    return [[word for word in message
+             if word not in stopword_corpus]
             for message in messages]
+
 
 def filter_english(messages):
-    return [[word for word in message \
-             if wordnet.synsets(word)] \
+    return [[word for word in message
+             if wordnet.synsets(word)]
             for message in messages]
 
+
 def filter_alpha(messages):
-    return [[word for word in message if word.isalpha()] \
+    return [[word for word in message if word.isalpha()]
             for message in messages]
+
 
 def sentences(messages):
     msg_sentences = []
